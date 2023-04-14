@@ -19,7 +19,7 @@ import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import { TypeSpecimen } from '@mui/icons-material';
 const useStyles = makeStyles((theme) => ({
     logoGrid: {
-        backgroundColor: "#0862A0",
+        backgroundColor: "#08122A0",
         height: '100vh',
         padding: '56px'
     },
@@ -30,10 +30,16 @@ const useStyles = makeStyles((theme) => ({
         padding: '37px 30px'
     },
     priceCard: {
+        marginTop:'20px',
         height: "400px",
         // position: "relative",
         width: "310px",
         padding: '32px',
+        boxShadow:'none !important',
+        "&:hover": {
+            boxShadow: "rgba(0, 0, 0, 0.2) 0px 3px 5px -1px, rgba(0, 0, 0, 0.14) 0px 5px 8px 0px, rgba(0, 0, 0, 0.12) 0px 1px 14px 0px !important",
+            transform: "scale3d(1.05, 1.05, 1)"
+        },
 
     }
 }))
@@ -67,7 +73,7 @@ const LandingPage = () => {
                     </Box>
                 </Grid>
                 <Grid item xs={12} md={6} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-around' }}>
-                    <Grid container sx={{ pl: 5 }}>
+                    <Grid container sx={{ pl: 10 }}>
                         <Grid item xs={3} >
                             <Button variant="tabButton">
                                 About US
@@ -234,7 +240,7 @@ const LandingPage = () => {
                                     )
                                 })}
                             </List>
-                            <Button variant='buyButton' sx={{ backgroundColor: "#F0682C", color: "#fff" }}>
+                            <Button variant='buyButton'>
                                 Regular license
                             </Button>
                         </Card>
@@ -309,7 +315,7 @@ const LandingPage = () => {
                         Blog
                     </Typography>
                 </Grid>
-                <Grid item xs={12} md={6} lg={4} sx={{ alignSelf: 'center', display: 'flex', justifyContent: "space-between", width:"10%" }}>
+                <Grid item xs={12} md={6} lg={4} sx={{ alignSelf: 'center', display: 'flex', justifyContent: "space-between", width: "12%" }}>
 
                     <img src={fb} alt="facebook" />
                     <img src={instagram} alt="instagram" />
@@ -317,7 +323,13 @@ const LandingPage = () => {
                     <img src={linkedin} alt="linkedin" />
 
                 </Grid>
+                {/* <Grid item xs={12} md={12} lg={12}>
+                    <Typography variant="description" sx={{ fontSize: "18px", ml: '30px' }}>
+                        Designed by Muralidharan
+                    </Typography>
+                </Grid> */}
             </Box>
+
 
         </div >
     )

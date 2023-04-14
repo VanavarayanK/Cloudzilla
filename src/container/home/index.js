@@ -73,7 +73,7 @@ const Home = () => {
             <Grid container position={'relative'}>
                 <Grid item xs={click ? 9 : 12} >
                     <Grid container my={2} display="flex" justifyContent="space-between" sx={{ alignItems: "center" }}>
-                        <Grid item display="flex" sx={{ height: '25px' }}>
+                        <Grid item display="flex" sx={{ height: '25px', wordBreak:'nowrap' }}>
                             <Box display="flex" mr={5} className={classes.actions}
                                 onClick={() => setOpenDialog(true)}>
                                 <img src={Add} width={20} alt=""></img>
@@ -152,7 +152,24 @@ const Home = () => {
                         />
                     )
                 }
-
+                {alert && copy && <Alert
+                    variant="alertToast"
+                    onClose={() => setAlert(false)}
+                    action={
+                        <Box alignSelf={'center'}>
+                            <Button color="inherit" variant='save' sx={{ mr: '65px', p: 1 }}>
+                                Copy(1)
+                            </Button>
+                            <Button color="inherit" size="small" variant='cencel' sx={{ p: 1, mr: 5 }}>
+                                Cancel
+                            </Button></Box>
+                    }
+                    // style={{ }}
+                    icon={<img src={DialogInfo} alt="info" />} >
+                    <Typography variant="alertText">
+                        Select the item that you want to copy
+                    </Typography>
+                </Alert>}
                 <CreateDialog
                     open={openDialog}
                     title={"Create User"}
@@ -165,24 +182,7 @@ const Home = () => {
                 <ToastMessage open={toastAlert} close={setToastAlert} severity={severity} />
             </Grid>
 
-            {alert && copy && <Alert
-                variant="alertToast"
-                onClose={() => setAlert(false)}
-                action={
-                    <Box alignSelf={'center'}>
-                        <Button color="inherit" variant='save' sx={{ mr: '65px', p: 1 }}>
-                            Copy(1)
-                        </Button>
-                        <Button color="inherit" size="small" variant='cencel' sx={{ p: 1, mr: 5 }}>
-                            Cancel
-                        </Button></Box>
-                }
-                // style={{ }}
-                icon={<img src={DialogInfo} alt="info" />} >
-                <Typography variant="alertText">
-                    Select the item that you want to copy
-                </Typography>
-            </Alert>}
+
         </Page>
     )
 }
