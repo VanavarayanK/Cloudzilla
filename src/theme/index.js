@@ -120,7 +120,7 @@ const theme = createTheme({
             color: '#7C7C7C',
             padding: "20px",
             backgroundColor: '#FFF7F4',
-            width: "100%",
+            width: "calc(100vw - 159px)",
             overflow: 'unset',
             boxShadow: '0px -1px 6px 4px #0000000D'
           }
@@ -196,10 +196,6 @@ const theme = createTheme({
             fontWeight: "600",
             borderRadius: '16px',
             width:'100%',
-            "&:hover": {
-              backgroundColor: '#F0682C',
-              color: '#fff'
-            }
             // position:"absolute",
             // bottom:'32px'
           },
