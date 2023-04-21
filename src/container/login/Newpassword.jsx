@@ -36,9 +36,9 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column ",
     width: '100% !important',
     '@media (max-width:900px)': {
-        width: '100% !important',
+      width: '100% !important',
     }
-},
+  },
   forgotText: {
     display: "flex",
     justifyContent: "end",
@@ -48,9 +48,9 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: 'nunito',
     fontSize: "14px",
     lineHeight: "22px",
-    fontWeight:'400',
-    "&:hover":{
-    textDecoration: "underline",
+    fontWeight: '400',
+    "&:hover": {
+      textDecoration: "underline",
     }
   },
   button: {
@@ -58,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#F0682C !important",
     color: "#fff !important",
     width: "100%",
-    marginTop: "2rem !important",
+    // marginTop: "2rem !important",
     display: "flex",
     fontFamily: "Nunito !important",
     fontSize: "16px !important",
@@ -89,35 +89,35 @@ const Login = () => {
 
   return (
     <Page>
-      <LoginCard>
-        <Box mx={8} mt={5} className={classes.content}>
-          <Typography variant='title'>
-          Forgot Password
-          </Typography>
-          <Typography variant='subtitle'>
-          Enter your new password
-          </Typography>
-        </Box>
-        <Box fullwidth mx={8} mt={3}>
-          <Formik
-            initialValues={{
-              userName: '',
-              password: '',
-            }}
-            validationSchema={Yup.object().shape({
-              password: Yup.string().required('Password is required'),
-              confirmPassword: Yup.string().required('Confirm Password is required').oneOf([Yup.ref('password'), null], 'Passwords must match'),
-            })}
-            onSubmit={() => [
+      <Formik
+        initialValues={{
+          userName: '',
+          password: '',
+        }}
+        validationSchema={Yup.object().shape({
+          password: Yup.string().required('Password is required'),
+          confirmPassword: Yup.string().required('Confirm Password is required').oneOf([Yup.ref('password'), null], 'Passwords must match'),
+        })}
+        onSubmit={() => [
 
-            ]}
-          >
-            {({ errors, handleBlur, handleChange, handleSubmit, touched, values }) => (
-              <form noValidate onSubmit={handleSubmit}>
-                <Grid container display="flex" flexDirection="column">
+        ]}
+      >
+        {({ errors, handleBlur, handleChange, handleSubmit, touched, values }) => (
+          <form noValidate onSubmit={handleSubmit}>
+            <LoginCard>
+              <Box mx={8} mt={10} className={classes.content}>
+                <Typography variant='title'>
+                  Forgot Password
+                </Typography>
+                <Typography variant='subtitle'>
+                  Enter your new password
+                </Typography>
+              </Box>
+              <Box fullwidth mx={8} mt={3}>
+                <Grid container display="flex" flexDirection="column" style={{ height: '270px' }} >
                   <FormControl variant="standard">
-                    <Typography variant="formLabel" fullwidth >
-                    Password
+                    <Typography variant="formLabel">
+                      Password
                     </Typography>
                     <InputBase
                       error={Boolean(touched.password && errors.password)}
@@ -127,7 +127,8 @@ const Login = () => {
                       name="password"
                       onBlur={handleBlur}
                       onChange={handleChange}
-                      fullwidth placeholder='Enter your password' />
+                      fullwidth 
+                      placeholder='Enter your password' />
                     {touched.password && errors.password && (
                       <FormHelperText error>
                         {errors.password}
@@ -146,14 +147,8 @@ const Login = () => {
                       onBlur={handleBlur}
                       onChange={handleChange}
                       fullwidth
-                      type="confirmPassword"
+                      type="password"
                       placeholder='Enter your confirmPassword'
-                    //  type={showPassword ? 'text' : 'confirmPassword'}
-                    //  endAdornment={
-                    //   <IconButton aria-label="search" onClick={handleClickShowPassword}>
-                    //     {showPassword ? <VisibilityOff style={{ color: "#949CA9", padding: '0 8px' }} /> : <Visibility style={{ color: "#949CA9", padding: '0 8px' }} />}
-                    //   </IconButton>
-                    // }
                     />
                     {touched.confirmPassword && errors.confirmPassword && (
                       <FormHelperText error>
@@ -161,18 +156,16 @@ const Login = () => {
                       </FormHelperText>
                     )}
                   </FormControl>
-                  {/* <a onClick={() => navigate('/forgotpasswordlink')} className={classes.forgotText} >Forgot password?</a> */}
                 </Grid>
-                <Grid xs={12} md={12} style={{ marginTop: '15vh' }}>
+                <Grid item xs={12} md={12} >
                   <Button type="submit" fullwidth className={classes.button}>
                     Update
                   </Button>
                 </Grid>
-              </form>
-            )}
-          </Formik>
-        </Box>
-        {/* <Grid item xs={11} md={11} style={{ display: "flex", margin: "2rem 4rem" }}>
+
+              </Box>
+              
+              {/* <Grid item xs={11} md={11} style={{ display: "flex", margin: "2rem 4rem" }}>
           <Button variant='outlined' fullwidth style={{ marginRight: '10px' }} className={classes.signupButton} >
             <img style={{ marginRight: "10px" }} src={Google} alt="google" />  Sign up with Google
           </Button>
@@ -180,11 +173,14 @@ const Login = () => {
             <img style={{ marginRight: "10px" }} src={Facebook} alt="google" />  Sign up with Facebook
           </Button>
         </Grid> */}
-        <Typography mt={10} variant="formLabel" display="flex" justifyContent="center">
-        Already have an account?  <span href="" onClick={() => navigate('/login')} style={{ marginLeft: "8px", color: "#2F93F6", textDecoration: "underline", cursor: "pointer" }}> Sign In</span>
-        </Typography>
-      </LoginCard>
-
+        
+              <Typography sx={{ mt: '125px' }} variant="formLabel" display="flex" justifyContent="center">
+                Already have an account?  <span href="" onClick={() => navigate('/login')} style={{ marginLeft: "8px", color: "#2F93F6", textDecoration: "underline", cursor: "pointer" }}> Sign In</span>
+              </Typography>
+            </LoginCard>
+          </form>
+        )}
+      </Formik>
     </Page>
   )
 }

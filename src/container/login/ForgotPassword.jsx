@@ -32,7 +32,7 @@ const useStyles = makeStyles(() => ({
         backgroundColor: "#F0682C !important",
         color: "#fff !important",
         width: "100%",
-        marginTop: "16rem !important",
+        // marginTop: "16rem !important",
         display: "flex",
         fontFamily: "Nunito !important",
         fontSize: "16px !important",
@@ -73,7 +73,7 @@ const ForgotPassword = () => {
                 {({ errors, handleBlur, handleChange, handleSubmit, touched, values }) => (
                     <form noValidate onSubmit={handleSubmit}>
                         <LoginCard>
-                            <Box mx={8} mt={5} className={classes.content} >
+                            <Box mx={8} mt={10} className={classes.content} >
                                 <Typography variant='title'>
                                     Forgot Password
                                 </Typography>
@@ -82,7 +82,7 @@ const ForgotPassword = () => {
                                 </Typography>
                             </Box>
                             <Box  mx={8} mt={3}>
-                                <Grid container display="flex" flexDirection="column">
+                                <Grid container display="flex" flexDirection="column" sx={{height:'270px'}}>
                                     <FormControl variant="standard">
                                         <Typography variant="formLabel">
                                             E-mail or phone number
@@ -108,7 +108,7 @@ const ForgotPassword = () => {
                                     </Button>
                                 </Grid>
                             </Box>
-                            <Typography mt={10} variant="formLabel" display="flex" justifyContent="center">
+                            <Typography sx={{mt:'125px'}} variant="formLabel" display="flex" justifyContent="center">
                                 Already have an account?  <span href="" onClick={() => navigate('/login')} style={{ marginLeft: "8px", color: "#2F93F6", textDecoration: "underline", cursor: "pointer" }}> Sign In</span>
                             </Typography>
                         </LoginCard>

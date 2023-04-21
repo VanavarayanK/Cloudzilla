@@ -367,7 +367,7 @@ const Table = () => {
                 noDataComponent="No users available"
                 pagination
 
-                sortIcon={<img style={{ margin: "0px 0 -2px 6px ", }} src={SortIcon} alt="" />}
+                sortIcon={<img style={{ margin: "0px 0 -2px 6px "}} src={SortIcon} alt="" />}
                 columns={viewColumns}
                 data={data}
                 customStyles={customStyles} />

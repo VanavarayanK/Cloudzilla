@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Box, Grid, Alert, Typography, IconButton, Button } from '@mui/material';
+import React, { useEffect, useState } from 'react'
+import { Box, Grid, Alert, Typography, IconButton, Button, Stack } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import Page from '../../components/page';
 import FilePreview from '../../components/Card/FilePreview';
@@ -65,47 +65,66 @@ const Home = () => {
     const [disabled, setDisabled] = useState(true)
 
 
-
+useEffect(()=>{
+!click && setActive(null)
+},[click])
 
     const array = [1, 2, 3, 1, 2, 2, 2, 3, 3, 2, 2, 23, 3, 3, 3, 3, , 3, 3, 23, 3, 3, 3, 3, , 3, 3, 3, 3, 3, 3, 3, 3]
     return (
         <Page>
             <Grid container position={'relative'}>
-                <Grid item xs={click ? 9 : 12} >
+                <Grid item xs={click ? 6 : 12} md={click ? 9 : 12}>
                     <Grid container my={2} display="flex" justifyContent="space-between" sx={{ alignItems: "center" }}>
-                        <Grid item display="flex" sx={{ height: '25px' }}>
-                            <Box display="flex" mr={5} className={classes.actions}
-                                onClick={() => setOpenDialog(true)}>
-                                <img src={Add} width={20} alt=""></img>
-                                <Typography variant="action" ml={1}>Add</Typography>
-                            </Box>
-                            <Box display="flex" mr={5} className={classes.actions} >
-                                <img src={Upload} width={15} alt=""></img>
-                                <Typography variant="action" ml={1}>Upload</Typography>
-                            </Box>
-                            <Box display="flex" mr={5} className={classes.actions}>
-                                {/* <img src={Download} width={20} alt=""></img> */}
-                                <DownloadForOfflineOutlinedIcon sx={{ fontSize: "22px", color: disabled ? "#cbcccd" : "#878787" }} />
-                                <Typography variant="action" sx={{ color: disabled && "#cbcccd" }} ml={1}>Download</Typography>
-                            </Box>
-                            <Box display="flex" mr={5} className={classes.actions}
-                                onClick={() => {
-                                    setCopy(copy ? false : true)
-                                    setAlert(true)
-                                }}
-                            >
-                                <img src={copy ? ActiveCopy : Copy} width={20} alt=""></img>
-                                <Typography variant="action" sx={{ color: copy && '#F0682C' }} ml={1}>Copy</Typography>
-                            </Box>
-                            <Box display="flex" mr={5} className={classes.actions}>
-                                <img src={Move} width={20} alt=""></img>
-                                <Typography variant="action" ml={1}>Move</Typography>
-                            </Box>
-                            <Box display="flex" mr={5} className={classes.actions}>
-                                <img src={Delete} width={20} alt=""></img>
-                                <Typography variant="action" ml={1}>Delete</Typography>
-                            </Box>
+                        <Grid item wrap="wrap" display="flex" sx={{ height: '25px' }}>
+                            <Stack direction="row" spacing={2}>
+                                <Button
+                                    onClick={() => setOpenDialog(true)}
+                                    classes="action" size="small"
+                                    startIcon={<img src={Add} width={20} alt="add"></img>}
+                                >
+                                    Add
+                                </Button>
+                                <Button
+                                    classes="action" size="small"
+                                    startIcon={<img src={Upload} width={15} alt="upload"></img>}
+                                >
+                                    <Typography variant="action">Upload</Typography>
+                                </Button>
+                                <Button
+                                    classes="action"
+                                    startIcon={<DownloadForOfflineOutlinedIcon fontSize="large" />}
+                                >
+                                    <Typography variant="action">Download</Typography>
+                                </Button>
+                                <Button
+                                    classes="action"
+                                    onClick={() => {
+                                       gridView && setCopy(copy ? false : true)
+                                        setAlert(true)
+                                        setClick(false)
+                                        setActive(null)
+
+                                    }}
+                                    startIcon={<img src={copy ? ActiveCopy : Copy} width={20} alt="" />}
+                                >
+
+                                    <Typography variant="action" sx={{ color: copy && '#F0682C' }}>Copy</Typography>
+                                </Button>
+                                <Button
+                                    classes="action"
+                                    startIcon={<img src={Move} width={20} alt="" />}
+                                >
+                                    <Typography variant="action">Move</Typography>
+                                </Button>
+                                <Button
+                                    classes="action"
+                                    startIcon={<img src={Delete} width={20} alt="" />}
+                                >
+                                    <Typography variant="action">Delete</Typography>
+                                </Button>
+                            </Stack>
                         </Grid>
+
                         <Grid item display="flex">
                             <IconButton display="flex"
                                 onClick={() => {
@@ -123,8 +142,8 @@ const Home = () => {
                         </Grid>
                     </Grid>
                     {/* <PerfectSc */}
-                    <Box sx={{ backgroundColor: "#fff", mt: 3, width: '100%', height: '73.5vh', overflowY: "scroll", scrollbarWidth: 'thin' }}>
-                        <Grid columnSpacing={0} container sx={{ pt: 3 }} >
+                    <Box sx={{ backgroundColor: "#fff", mt: 3, width: '100%', height: copy && alert ? 'calc(100vh - 350px)': 'calc(100vh - 250px)', overflow: 'scroll' }}>
+                        <Grid columnSpacing={0} container sx={{ pt: 3, justifyContent: 'center' }} >
                             {gridView ? array.map((item, i) => {
                                 return (
                                     <FileCard
@@ -143,6 +162,24 @@ const Home = () => {
                             {/* <AccessCard /> */}
                         </Grid>
                     </Box>
+                    {alert && copy && <Alert
+                        variant="alertToast"
+                        onClose={() => setAlert(false)}
+                        action={
+                            <Box display="flex">
+                                <Button color="inherit" variant='save' sx={{ mr: '65px', p: 1 }}>
+                                    Copy(1)
+                                </Button>
+                                <Button color="inherit" size="small" variant='cencel' sx={{ p: 1, mr: 5 }}>
+                                    Cancel
+                                </Button></Box>
+                        }
+                        // style={{ }}
+                        icon={<img src={DialogInfo} alt="info" />} >
+                        <Typography variant="alertText">
+                            Select the item that you want to copy
+                        </Typography>
+                    </Alert>}
                 </Grid>
                 {
                     click && (
@@ -164,25 +201,6 @@ const Home = () => {
                 {openDialog && <div className={classes.backdrop} />}
                 <ToastMessage open={toastAlert} close={setToastAlert} severity={severity} />
             </Grid>
-
-            {alert && copy && <Alert
-                variant="alertToast"
-                onClose={() => setAlert(false)}
-                action={
-                    <Box alignSelf={'center'}>
-                        <Button color="inherit" variant='save' sx={{ mr: '65px', p: 1 }}>
-                            Copy(1)
-                        </Button>
-                        <Button color="inherit" size="small" variant='cencel' sx={{ p: 1, mr: 5 }}>
-                            Cancel
-                        </Button></Box>
-                }
-                // style={{ }}
-                icon={<img src={DialogInfo} alt="info" />} >
-                <Typography variant="alertText">
-                    Select the item that you want to copy
-                </Typography>
-            </Alert>}
         </Page>
     )
 }

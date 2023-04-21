@@ -25,14 +25,13 @@ const useStyles = makeStyles((theme) => ({
 
 const FileCard = (props) => {
     const classes = useStyles();
-    console.log(props)
     return (
         <Grid
             onClick={() =>  {
                 !props.copy &&  props.setClick(true)
                 !props.copy &&  props.setActive(props.id)
             }}
-            item xs={6} md={3} lg={props.click ? 3 : 2}  display="flex" justifyContent="center">
+            item xs='auto'  justifyContent="center">
             <FormGroup>
                 <FormControl style={{ display: "flex", flexDirection: "revert" }}>
                     {props.copy && <FormControlLabel

@@ -7,8 +7,9 @@ const useStyles = makeStyles((theme) => ({
   card: {
     borderRadius: "10px 10px 10px 10px",
     padding: '3rem 0',
-    // height:'650px',
-    // width:"991px"
+    height:'70vh',
+    width:"100%",
+    margin:'auto'
   },
   box: {
     backgroundColor: "#0862A0",
@@ -19,7 +20,8 @@ const useStyles = makeStyles((theme) => ({
   },
   logoContent: {
     display: 'flex',
-    borderRight: "1px solid #D1D1D1",
+    position:'relative',
+    // borderRight: "1px solid #D1D1D1",
     lineHeight: "10px",
     justifyContent: 'center',
     alignItems: "center",
@@ -27,7 +29,16 @@ const useStyles = makeStyles((theme) => ({
       borderRight: "none",
       height: '',
       marginTop: '',
-    }
+    },
+    "&::before":{
+      content:'""',
+      position:'absolute',
+      height:'65%',
+      right:0,
+      top:"15%",
+      background:'#D1D1D1',
+      width:'1px'
+    } 
   },
 }))
 
@@ -36,9 +47,9 @@ const LoginCard = (props) => {
 
   return (
     <Box className={classes.box}>
-      <Container>
+      <Container maxWidth="lg">
         <Card className={classes.card}>
-          <Grid container>
+          <Grid container style={{height:'100%'}}>
             <Grid item sx={5} md={5} className={classes.logoContent} style={{ width: "100%" }}>
               <Grid>
                 <img src={logo} alt="" />

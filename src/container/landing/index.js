@@ -1,4 +1,4 @@
-import { Grid, Box, Typography, Button, Card, Avatar, List, ListItem, ListItemIcon, ListItemText } from '@mui/material'
+import { Grid, Box, Typography, Button, Card, Avatar, List, Stack, ListItem, ListItemIcon, ListItemText } from '@mui/material'
 import React from 'react'
 import { makeStyles } from '@mui/styles';
 import LandingImage from './../../images/landing/landingLogo.svg'
@@ -13,7 +13,7 @@ import fb from './../../images/landing/fb.svg'
 import instagram from './../../images/landing/insta.svg'
 import twitter from './../../images/landing/twitter.svg'
 import linkedin from './../../images/landing/linkedin.svg'
-
+import { useNavigate, userNavigate } from 'react-router-dom';
 
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import { TypeSpecimen } from '@mui/icons-material';
@@ -23,23 +23,43 @@ const useStyles = makeStyles((theme) => ({
         height: '100vh',
         padding: '56px'
     },
+    best: {
+        border: "1px solid #F0682C",
+        borderRadius: '16px',
+        letterSpacing: '2.5px',
+        padding: '6px 20px',
+        height: '17px',
+        width: '50px',
+        textAlign: "center",
+        fontWeight: 800,
+        fontSize: '12px',
+        fontFamily: 'Inter'
+
+    },
     card: {
-        boxShadow: "linear-gradient(0deg, rgba(154, 84, 234, 0.15), rgba(154, 84, 234, 0.15)), linear-gradient(0deg, #FFFFFF, #FFFFFF)",
+        boxShadow: "0px 11px 8px -3px rgba(0,0,0,0.1);",
         maxHeight: '362px',
         maxWidth: '288px',
         padding: '37px 30px'
     },
     priceCard: {
-        height: "400px",
-        // position: "relative",
+        position: 'relative',
+        marginTop: '20px',
+        height: "480px",
+        borderRadius: "16px !important",
         width: "310px",
         padding: '32px',
+        boxShadow: 'none !important',
+        "&:hover": {
+            boxShadow: "rgba(0, 0, 0, 0.2) 0px 3px 5px -1px, rgba(0, 0, 0, 0.14) 0px 5px 8px 0px, rgba(0, 0, 0, 0.12) 0px 1px 14px 0px !important",
+            transform: "scale3d(1.05, 1.05, 1)"
+        },
 
     }
 }))
 const LandingPage = () => {
     const classes = useStyles();
-
+    const navigate = useNavigate()
     return (
         <div>
             <Grid container>
@@ -61,13 +81,20 @@ const LandingPage = () => {
                         </Typography>
                     </Box>
                     <Box sx={{ mt: 5 }}>
-                        <Button variant="started">
+                        <Button variant="started"
+                            sx={{
+                                "&:hover": {
+                                    backgroundColor: '#FFF',
+                                }
+                            }}
+                            onClick={() => navigate('/login')}
+                        >
                             Get Started
                         </Button>
                     </Box>
                 </Grid>
-                <Grid item xs={12} md={6} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-around' }}>
-                    <Grid container sx={{ pl: 5 }}>
+                <Grid item xs={12} md={6} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-around', borderBottom: '1px solid #03385A' }}>
+                    <Grid container sx={{ pl: 10 }}>
                         <Grid item xs={3} >
                             <Button variant="tabButton">
                                 About US
@@ -94,9 +121,9 @@ const LandingPage = () => {
                     </Box>
                 </Grid>
             </Grid>
-            <Box sx={{ padding: '70px 110px 10px', margin: '100px', backgroundColor: "#FFEDE5" }}>
+            <Box sx={{ padding: '0px 110px', margin: '100px', backgroundColor: "#FFEDE5" }}>
                 <Grid container>
-                    <Grid item xs={6} style={{ paddingRight: '20%' }}>
+                    <Grid item xs={12} md={6} style={{  margin:'70px 0' }}>
                         <Box>
                             <Typography variant="aboutText">
                                 Lorem ipsum dolor sit amet
@@ -113,19 +140,22 @@ const LandingPage = () => {
                             <Typography variant="aboutDescription">
                                 Lorem ipsum dolor sit amet consectetur. Nunc enim tortor malesuada amet. Gravida erat interdum et mus montes semper sit tempor. Neque amet rhoncus vel etiam at enim varius.
                                 Lorem ipsum dolor sit amet consectetur. Ultrices malesuada enim porttitor proin sed. Varius cursus eleifend porttitor maecenas nibh est. Mauris porttitor arcu cursus ornare quis aliquet.
-                                Lorem ipsum dolor sit amet consectetur. Nunc enim tortor malesuada amet. Gravida erat interdum et mus montes semper sit tempor. Neque amet rhoncus vel etiam at enim varius.
-                                Lorem ipsum dolor sit amet consectetur. Ultrices malesuada enim porttitor proin sed. Varius cursus eleifend porttitor maecenas nibh est. Mauris porttitor arcu cursus ornare quis aliquet.
-
+                                Lorem ipsum dolor sit amet consectetur.
                             </Typography>
                         </Box>
-                        <Box sx={{ mt: 3 }}>
-                            <Button variant="started" sx={{ backgroundColor: '#F0682C', color: '#fff' }}>
+                        <Box sx={{ mt: 5 }}>
+                            <Button variant="started" sx={{
+                                backgroundColor: '#F0682C', color: '#fff',
+                                "&:hover": {
+                                    backgroundColor: '#F0682C',
+                                }
+                            }}>
                                 View all
                             </Button>
                         </Box>
                     </Grid>
-                    <Grid item xs={6}>
-                        <Box >
+                    <Grid item xs={12} md={6}>
+                        <Box  sx={{display:{xs:'none', md:'block'}}}>
                             <img src={Track} alt="pc" />
                         </Box>
                     </Grid>
@@ -142,7 +172,12 @@ const LandingPage = () => {
                         <Box>
                             <Button variant="started"
                                 endIcon={<ArrowRightAltIcon style={{ color: '#fff' }} />}
-                                sx={{ backgroundColor: '#F0682C', color: '#fff', width: '203px' }}>
+                                sx={{
+                                    backgroundColor: '#F0682C', color: '#fff', width: '203px',
+                                    "&:hover": {
+                                        backgroundColor: '#F0682C',
+                                    }
+                                }}>
                                 All Features
                             </Button>
                         </Box>
@@ -182,12 +217,14 @@ const LandingPage = () => {
                         Affordable pricing
                     </Typography>
                 </div>
-                <Grid sx={{ display: 'flex', justifyContent: 'space-evenly' }}>
-                    <Grid item xs={4}>
+                <Grid display="flex" justifyContent={'space-evenly'}>
+                    <Grid item xs={12} md={6} lg={4}>
                         <Card className={classes.priceCard}>
-                            <Typography variant="pricingFor">
-                                For Entry
-                            </Typography>
+                            <Stack direction="row" >
+                                <Typography variant="pricingFor">
+                                    For Entry
+                                </Typography>
+                            </Stack>
                             <br />
                             <Typography variant='price'>
                                 Free <span style={{ fontSize: '12px', marginLeft: '-8px' }}>/ FOREVER</span>
@@ -211,17 +248,22 @@ const LandingPage = () => {
                             </Button>
                         </Card>
                     </Grid>
-                    <Grid item xs={4}>
+                    <Grid item xs={12} md={6} lg={4}>
                         <Card className={classes.priceCard}>
-                            <Typography variant="pricingFor">
-                                Individual
-                            </Typography>
+                            <Stack direction="row" justifyContent={"space-between"}>
+                                <Typography variant="pricingFor">
+                                    👤 Individual
+                                </Typography>
+                                <Box className={classes.best}>
+                                    BEST!
+                                </Box>
+                            </Stack>
                             <br />
                             <Typography variant='price'>
                                 $00 <span style={{ fontSize: '12px', marginLeft: '-8px' }}>/ MONTH</span>
                             </Typography>
                             <List>
-                                {[1, 2, 3, 4].map(() => {
+                                {[1, 2, 3, 4, 5].map(() => {
                                     return (
                                         <ListItem sx={{ padding: '10px 0px' }}>
                                             <ListItemIcon>
@@ -234,16 +276,18 @@ const LandingPage = () => {
                                     )
                                 })}
                             </List>
-                            <Button variant='buyButton' sx={{ backgroundColor: "#F0682C", color: "#fff" }}>
+                            <Button variant='buyButton'>
                                 Regular license
                             </Button>
                         </Card>
                     </Grid>
-                    <Grid item xs={4}>
+                    <Grid item xs={12} md={6} lg={4}>
                         <Card className={classes.priceCard}>
-                            <Typography variant="pricingFor">
-                                Corporate
-                            </Typography>
+                            <Stack direction="row" justifyContent={"space-between"}>
+                                <Typography variant="pricingFor">
+                                    👥 Corporate
+                                </Typography>
+                            </Stack>
                             <br />
                             <Typography variant='price'>
                                 $00 <span style={{ fontSize: '12px', marginLeft: '-8px' }}>/ EDITOR</span>
@@ -274,18 +318,14 @@ const LandingPage = () => {
                     <Typography variant='aboutTitle' alignCenter>
                         Our Technology partners
                     </Typography>
-                    <Grid>
-                        <Grid item sx={{ display: 'flex', justifyContent: 'space-around', mx: '300px' }}>
+                    <Grid container justifyContent="space-evenly">
+                      { [1,2,3,4,5,6,7,8,9].map((i)=>{
+                        return(
+                        <Grid key={i} item sm={4} md={2} lg={1}>
                             <img src={facebook} alt="facebook" />
-                            <img src={facebook} alt="facebook" />
-                            <img src={facebook} alt="facebook" />
-                            <img src={facebook} alt="facebook" />
-                            <img src={facebook} alt="facebook" />
-                            <img src={facebook} alt="facebook" />
-                            <img src={facebook} alt="facebook" />
-                            <img src={facebook} alt="facebook" />
-
                         </Grid>
+                        )
+                       })}
                     </Grid>
                 </div>
             </Box>
@@ -309,7 +349,7 @@ const LandingPage = () => {
                         Blog
                     </Typography>
                 </Grid>
-                <Grid item xs={12} md={6} lg={4} sx={{ alignSelf: 'center', display: 'flex', justifyContent: "space-between", width:"10%" }}>
+                <Grid item xs={12} md={6} lg={4} sx={{ alignSelf: 'center', display: 'flex', justifyContent: "space-between", width: "12%" }}>
 
                     <img src={fb} alt="facebook" />
                     <img src={instagram} alt="instagram" />

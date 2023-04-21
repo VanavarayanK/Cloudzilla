@@ -13,13 +13,9 @@ import Copy from './../../images/home/copy.svg'
 
 const FilePreview = (props) => {
     return (
-        <Grid item xs={3} sx={{
-            whiteSpace: "nowrap",
-            overflow: "hidden",
-            textOverflow: "ellipsis",
-        }}>
-            <Box sx={{ background: "#fff", width: "100%", border: '1px solid #DDDDDD' }} >
-                <Box p={3}>
+        <Grid item xs={6} md={3} sx={{mt:{sm: 10,md:0}}}>
+            <Box sx={{ background: "#fff", width: "100%", margin: '1rem', border: '1px solid #DDDDDD' }} >
+                <Box p={3} sx={{height:'calc(100vh - 280px)'}}>
                     <Grid container display="flex" justifyContent="space-between">
                         <Box display="flex" mr={5}>
                             <img src={FilePreviewIcon} width={20} alt=""></img>
@@ -83,7 +79,7 @@ const FilePreview = (props) => {
                         </Grid>
                     </Grid>
                 </Box>
-                <Grid container sx={{ marginTop: '130px', display: 'flex', justifyContent: "space-between", p: 3, borderTop: '1px solid #DDDDDD' }}>
+                <Grid container sx={{  display: 'flex', justifyContent: "space-between", p: 3, borderTop: '1px solid #DDDDDD' }}>
                     <Button disableRipple mr={5} sx={{ textTransform: 'none' }} >
                         <img src={Cut} width={20} alt=""></img>
                         <Typography variant="previewHeader" ml={2}>Cut</Typography>

@@ -114,13 +114,13 @@ const theme = createTheme({
         {
           props: { variant: 'alertToast' },
           style: {
-            position: 'absolute',
-            zIndex: 30,
-            bottom: '55px',
+            // position: 'absolute',
+            // zIndex: 30,
+            // bottom: '55px',
             color: '#7C7C7C',
             padding: "20px",
             backgroundColor: '#FFF7F4',
-            width: "calc(100vw - 159px)",
+            width: "100%",
             overflow: 'unset',
             boxShadow: '0px -1px 6px 4px #0000000D'
           }
@@ -185,22 +185,43 @@ const theme = createTheme({
           props: { variant: 'buyButton' },
           style: {
             border: "1px solid #ADADAD",
-            fontFamily: '',
             backgroundColor: "#fff",
-            color:"#F0682C",
             fontFamily: "Inter",
             fontSize: "18px",
             lineHeight: "32px",
             padding: '13px',
             color: "#F0682C",
-            fontWeight: "600",
+            fontWeight: "700",
+            position: 'absolute',
+            bottom: '10px',
+            boxSizing: 'border-box',
             borderRadius: '16px',
-            width:'100%',
-            // position:"absolute",
-            // bottom:'32px'
+            width: 'inherit',
+            marginBottom: '16px',
+            textTransform: 'none',
+            "&:hover": {
+              backgroundColor: '#F0682C',
+              border: 'none',
+              fontSize: "24px",
+              color: '#fff'
+            }
           },
         },
-      
+        {
+          props: { classes: 'action' },
+          style: {
+            textTransform: "none",
+            fontFamily: "Open Sans",
+            fontSize: "14px",
+            lineHeight: "16px",
+            padding: '4px 0',
+            fontWeight: "600",
+            fontStyle: 'regular',
+            textTransform: "none",
+            color: "#878787",
+            padding:'10px 0px'
+          },
+        },
         {
           props: { variant: 'conatined' },
           style: {

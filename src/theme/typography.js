@@ -206,7 +206,7 @@ const typography = {
     fontFamily: "Open Sans",
     fontSize: "14px",
     fontWeight: "300",
-    lineHeight: "24px",
+    lineHeight: "24px"
   },
   toastTitle: {
     fontFamily: "Open Sans",

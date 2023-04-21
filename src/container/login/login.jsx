@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#F0682C !important",
     color: "#fff !important",
     width: "100%",
-    marginTop: "2rem !important",
+    // marginTop: "2rem !important",
     display: "flex",
     fontFamily: "Nunito !important",
     fontSize: "16px !important",
@@ -111,7 +111,7 @@ const Login = () => {
           >
             {({ errors, handleBlur, handleChange, handleSubmit, touched, values }) => (
               <form noValidate onSubmit={handleSubmit}>
-                <Grid container display="flex" flexDirection="column">
+                <Grid container display="flex" flexDirection="column" sx={{height:'350px'}}>
                   <FormControl variant="standard">
                     <Typography variant="formLabel" fullwidth >
                       E-mail
@@ -159,7 +159,7 @@ const Login = () => {
                   </FormControl>
                   <a onClick={() => navigate('/forgotpasswordlink')} className={classes.forgotText} >Forgot password?</a>
                 </Grid>
-                <Grid xs={12} md={12} style={{ marginTop: '9vh' }}>
+                <Grid xs={12} md={12} >
                   <Button type="submit" fullwidth className={classes.button}>
                     Sign In
                   </Button>
@@ -177,7 +177,7 @@ const Login = () => {
           </Button>
         </Grid>
         <Typography mt={2} variant="formLabel" display="flex" justifyContent="center">
-          New User? <span href="" onClick={() => navigate('/signup')} style={{ marginLeft: "8px", color: "#2F93F6", textDecoration: "underline", cursor: "pointer" }}> Sign Up</span>
+          New User? <span href="" onClick={() => navigate('/signup')} style={{ marginLeft: "8px", color: "#2F93F6", textDecoration: "underline", cursor: "pointer", }}> Sign Up</span>
         </Typography>
       </LoginCard>
 

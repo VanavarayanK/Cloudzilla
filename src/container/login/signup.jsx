@@ -34,7 +34,7 @@ const useStyles = makeStyles(() => ({
     backgroundColor: "#F0682C !important",
     color: "#fff !important",
     width: "100%",
-    marginTop: "4.2rem !important",
+    // marginTop: "4.2rem !important",
     display: "flex",
     fontFamily: "Nunito !important",
     fontSize: "16px !important",
@@ -97,7 +97,8 @@ const Signup = () => {
           >
             {({ errors, handleBlur, handleChange, handleSubmit, touched, values }) => (
               <form noValidate onSubmit={handleSubmit}>
-                <Grid container display="flex" flexDirection="column">
+               <Grid sx={{height:'350px'}}>
+               <Grid container display="flex" flexDirection="column" >
                   <FormControl variant="standard">
                     <Typography variant="formLabel" >
                       Your name
@@ -192,6 +193,7 @@ const Signup = () => {
                     </FormControl>
                   </Grid>
                 </Grid>
+               </Grid>
                 <Grid xs={12} md={12}>
                   <Button type="submit" fullwidth className={classes.button}>
                     Sign Up

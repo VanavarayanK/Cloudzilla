@@ -2,7 +2,6 @@ import React from 'react';
 import Login from './container/login/login';
 import Signup from './container/login/signup';
 import ForgotPasswordLink from './container/login/ForgotPassword';
-import Sidemenu from './components/Appbar/SIdemenu';
 import Newpassword from './container/login/Newpassword';
 import Settings from './container/settings';
 import ResponsiveDrawer from './components/Appbar/SIdemenu';
@@ -13,7 +12,7 @@ import LandingPage from './container/landing';
 
 const routes = [
     {
-        path: '',
+        // path: '',
         element: <ResponsiveDrawer />,
         children: [
             { path: '/settings', element: <Settings /> },
