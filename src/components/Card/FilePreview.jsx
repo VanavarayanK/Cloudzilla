@@ -18,7 +18,7 @@ const FilePreview = (props) => {
             overflow: "hidden",
             textOverflow: "ellipsis",
         }}>
-            <Box sx={{ background: "#fff", width: "100%", margin: '1rem', border: '1px solid #DDDDDD' }} >
+            <Box sx={{ background: "#fff", width: "100%", border: '1px solid #DDDDDD' }} >
                 <Box p={3}>
                     <Grid container display="flex" justifyContent="space-between">
                         <Box display="flex" mr={5}>

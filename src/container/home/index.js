@@ -56,7 +56,7 @@ const Home = () => {
     const classes = useStyles();
     const [click, setClick] = useState(false)
     const [active, setActive] = useState(null)
-    const [gridView, setGridView] = useState(false)
+    const [gridView, setGridView] = useState(true)
     const [openDialog, setOpenDialog] = useState(false)
     const [copy, setCopy] = useState(false)
     const [alert, setAlert] = useState(false)
