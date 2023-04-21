@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Cloudzilla/static/css/main.f5d0a6bf.css",
-    "main.js": "/Cloudzilla/static/js/main.e181c355.js",
-    "static/js/787.a21da4f5.chunk.js": "/Cloudzilla/static/js/787.a21da4f5.chunk.js",
+    "main.js": "/Cloudzilla/static/js/main.33aeb2bb.js",
+    "static/js/787.3816f05a.chunk.js": "/Cloudzilla/static/js/787.3816f05a.chunk.js",
     "static/media/fbIcon.svg": "/Cloudzilla/static/media/fbIcon.d329d4e04b123edbd96d85d9b39c8796.svg",
     "static/media/pc.svg": "/Cloudzilla/static/media/pc.9d01e3b608fa98782e61172465b26266.svg",
     "static/media/monish.png": "/Cloudzilla/static/media/monish.3c553da2de3d73ade35e.png",
@@ -66,11 +66,11 @@
     "static/media/moreIcon.svg": "/Cloudzilla/static/media/moreIcon.04ea7134464e9a61dd6f8fe31ab64e1a.svg",
     "static/media/uncheckedIcon.svg": "/Cloudzilla/static/media/uncheckedIcon.062dcd2b0ad06a99b6fb92a52da170c8.svg",
     "main.f5d0a6bf.css.map": "/Cloudzilla/static/css/main.f5d0a6bf.css.map",
-    "main.e181c355.js.map": "/Cloudzilla/static/js/main.e181c355.js.map",
-    "787.a21da4f5.chunk.js.map": "/Cloudzilla/static/js/787.a21da4f5.chunk.js.map"
+    "main.33aeb2bb.js.map": "/Cloudzilla/static/js/main.33aeb2bb.js.map",
+    "787.3816f05a.chunk.js.map": "/Cloudzilla/static/js/787.3816f05a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f5d0a6bf.css",
-    "static/js/main.e181c355.js"
+    "static/js/main.33aeb2bb.js"
   ]
 }
